@@ -23,6 +23,7 @@ logcount++;
 }
 
 startBtn.addEventListener("click", async () => {
+    if (stream && stream.active) { addLog("Camera is running"); return; }
     try {
         stream = await navigator.mediaDevices.getUserMedia({
             video: true,
@@ -39,6 +40,7 @@ startBtn.addEventListener("click", async () => {
 });
 
 stopBtn.addEventListener("click", () => {
+    if (!stream || !stream.active) { addLog("Camera is off."); return; }
 
     if (stream) {
         stream.getTracks().forEach(track => track.stop());
