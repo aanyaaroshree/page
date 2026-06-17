@@ -147,3 +147,15 @@ background-color: rgb(83, 135, 203);
         opacity: 0;
     }
 }
+.clock {
+    position: fixed;
+    top: 10px;
+    left: 25px;
+
+    color: whitesmoke;
+    font-family: "Merriweather", serif;
+    font-size: 1.3rem;
+    font-weight: bold;
+
+    z-index: 1000;
+}
