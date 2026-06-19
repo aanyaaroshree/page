@@ -4,6 +4,10 @@ const captureBtn = document.getElementById("captureBtn");
 
 const logList = document.getElementById("logList");
 const videoPlayer = document.getElementById("videoPlayer");
+startBtn.classList.add("bright-btn");
+
+stopBtn.classList.add("dim-btn");
+captureBtn.classList.add("dim-btn");
 
 let stream;
 let logcount=0;
@@ -32,6 +36,15 @@ startBtn.addEventListener("click", async () => {
 
         videoPlayer.srcObject = stream;
 
+        startBtn.classList.remove("bright-btn");
+        startBtn.classList.add("dim-btn");
+
+        stopBtn.classList.remove("dim-btn");
+        stopBtn.classList.add("bright-btn");
+
+        captureBtn.classList.remove("dim-btn");
+        captureBtn.classList.add("bright-btn");
+
         addLog("Button [Start] Clicked");
     } catch (error) {
         console.error(error);
@@ -47,7 +60,17 @@ stopBtn.addEventListener("click", () => {
 
         videoPlayer.srcObject = null;
 
+        startBtn.classList.remove("dim-btn");
+        startBtn.classList.add("bright-btn");
+
+        stopBtn.classList.remove("bright-btn");
+        stopBtn.classList.add("dim-btn");
+
+        captureBtn.classList.remove("bright-btn");
+        captureBtn.classList.add("dim-btn");
+
         addLog("Button [Stop] Clicked");
+
     }
 });
 captureBtn.addEventListener("click", () => {
